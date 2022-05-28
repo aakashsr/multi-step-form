@@ -1,14 +1,19 @@
 import React from "react";
+import Info from "../components/Info";
 
-function Success({username}) {
+function Success({ username }) {
   return (
-    <div>
+    <div className="success">
       <div className="success-icon">
-          <img style={{width: '25px'}} src='./tick.png' />
+        <img style={{ width: "25px" }} src="./tick.png" alt="success-icon" />
       </div>
-      <h1>Congratulations, {username}!</h1>
-      <p>You have completed onboarding, you can start using the Eden!</p>
-      <button>Launch Eden</button>
+      <Info
+        title={`Congratulations ${username}`}
+        subTitle="You have completed onboarding, you can start using the Eden!"
+      />
+      <form>
+        <button>Launch Eden</button>
+      </form>
     </div>
   );
 }

@@ -4,20 +4,8 @@ import WorkspaceDetails from "./WorkspaceDetails";
 import WorkspaceType from "./WorkspaceType";
 import Success from "./Success";
 
-function Signup() {
-  const [step, setStep] = useState(1);
-  const [formDetails, setFormDetails] = useState({
-    fullName: "",
-    userName: "",
-    workspaceName: "",
-    workspaceUrl: "",
-    workSpaceType: "myself",
-  });
-
-  const handleChange = (type, e) => {
-    setFormDetails((prevObj) => ({ ...prevObj, [type]: e.target.value }));
-    console.log(formDetails);
-  };
+function Signup({formDetails,handleChange,setStep,step,handleCheckbox,setWidth}) {
+  
 
   switch (step) {
     case 1:
@@ -41,8 +29,8 @@ function Signup() {
       return (
         <WorkspaceType
           formDetails={formDetails}
-          handleChange={handleChange}
           next={setStep}
+          handleCheckbox={handleCheckbox}
         />
       );
     case 4:
