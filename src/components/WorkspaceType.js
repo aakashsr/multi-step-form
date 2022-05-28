@@ -2,6 +2,7 @@ import React from "react";
 import Info from "../components/Info";
 
 function WorkspaceType({ formDetails, next, handleCheckbox }) {
+  const workSpaceType = formDetails.workSpaceType;
   return (
     <div className="profile-container">
       <Info
@@ -17,7 +18,11 @@ function WorkspaceType({ formDetails, next, handleCheckbox }) {
               formDetails.workSpaceType === "me" ? "me selected" : "me"
             }
           >
-            <img src="./profile.png" alt="single" />
+            {workSpaceType === "me" ? (
+              <img src="./user.png" alt='user' />
+            ) : (
+              <img src="./user-grey.png" alt='user' />
+            )}
             <h4>For myself</h4>
             <p>Write better. Think more clearly.Stay organized.</p>
           </div>
@@ -27,7 +32,11 @@ function WorkspaceType({ formDetails, next, handleCheckbox }) {
               formDetails.workSpaceType === "team" ? "team selected" : "team"
             }
           >
-            <img src="./multipleprofile.png" alt="multiple" />
+            {workSpaceType === "team" ? (
+              <img src="./group.png" alt='team' />
+            ) : (
+              <img src="./group-grey.png" alt='team' />
+            )}
             <h4>With my team</h4>
             <p>Wikis,docs,tasks & projects, all in one place.</p>
           </div>
