@@ -3,7 +3,7 @@ import Info from "../components/Info";
 
 function Success({ username }) {
   return (
-    <div className="success">
+    <div className="success profile-container">
       <div className="success-icon">
         <img style={{ width: "25px" }} src="./tick.png" alt="success-icon" />
       </div>

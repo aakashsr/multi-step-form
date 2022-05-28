@@ -1,7 +1,20 @@
 import React from "react";
 import Info from "../components/Info";
 
-function WorkspaceDetails({ formDetails, handleChange, next }) {
+function WorkspaceDetails({ formDetails, handleChange, next, setToaster }) {
+  const handleSubmit = (e) => {
+    if (formDetails.workspaceName === "") {
+      e.preventDefault();
+      console.log("if");
+      setToaster({ show: true, message: "*Please enter workspace name" });
+    } else if (formDetails.workspaceUrl === "") {
+      e.preventDefault();
+      setToaster({ show: true, message: "*Please enter workspace url" });
+    } else {
+      next((prevState) => prevState + 1);
+    }
+  };
+
   return (
     <div className="profile-container">
       <Info
@@ -26,9 +39,7 @@ function WorkspaceDetails({ formDetails, handleChange, next }) {
             placeholder="Example"
           />
         </div>
-        <button onClick={() => next((prevState) => prevState + 1)}>
-          Create Workspace
-        </button>
+        <button onClick={handleSubmit}>Create Workspace</button>
       </form>
     </div>
   );

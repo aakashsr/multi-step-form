@@ -19,9 +19,9 @@ function WorkspaceType({ formDetails, next, handleCheckbox }) {
             }
           >
             {workSpaceType === "me" ? (
-              <img src="./user.png" alt='user' />
+              <img src="./user.png" alt="user" />
             ) : (
-              <img src="./user-grey.png" alt='user' />
+              <img src="./user-grey.png" alt="user" />
             )}
             <h4>For myself</h4>
             <p>Write better. Think more clearly.Stay organized.</p>
@@ -33,15 +33,21 @@ function WorkspaceType({ formDetails, next, handleCheckbox }) {
             }
           >
             {workSpaceType === "team" ? (
-              <img src="./group.png" alt='team' />
+              <img src="./group.png" alt="team" />
             ) : (
-              <img src="./group-grey.png" alt='team' />
+              <img src="./group-grey.png" alt="team" />
             )}
             <h4>With my team</h4>
             <p>Wikis,docs,tasks & projects, all in one place.</p>
           </div>
         </div>
-        <button onClick={() => next((prevState) => prevState + 1)}>
+        <button
+          onClick={() => {
+            
+            next((prevState) => prevState + 1);
+            console.log(formDetails);
+          }}
+        >
           Create Workspace
         </button>
       </form>

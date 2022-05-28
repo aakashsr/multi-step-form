@@ -3,6 +3,7 @@ import "./App.css";
 import Signup from "./components/Signup";
 import ProgressCounter from "./components/ProgressCounter";
 import Title from "./components/Title";
+import Alert from "./components/Alert";
 
 function App() {
   const [step, setStep] = useState(1);
@@ -14,6 +15,7 @@ function App() {
     workSpaceType: "me",
   });
   const [width, setWidth] = useState(0);
+  const [toaster, setToaster] = useState({ show: false, message: "" });
 
   const handleCheckbox = (type, e) => {
     setFormDetails((prevObj) => ({
@@ -33,6 +35,7 @@ function App() {
 
   return (
     <div className="App">
+      {toaster.message && <Alert toaster={toaster} setToaster={setToaster} />}
       <Title />
       <ProgressCounter width={width} step={step} />
       <Signup
@@ -42,6 +45,7 @@ function App() {
         setStep={setStep}
         handleCheckbox={handleCheckbox}
         setWidth={setWidth}
+        setToaster={setToaster}
       />
     </div>
   );

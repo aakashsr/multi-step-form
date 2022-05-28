@@ -4,7 +4,7 @@ import WorkspaceDetails from "./WorkspaceDetails";
 import WorkspaceType from "./WorkspaceType";
 import Success from "./Success";
 
-function Signup({formDetails,handleChange,setStep,step,handleCheckbox,setWidth}) {
+function Signup({formDetails,handleChange,setStep,step,handleCheckbox,setToaster}) {
   
 
   switch (step) {
@@ -14,6 +14,7 @@ function Signup({formDetails,handleChange,setStep,step,handleCheckbox,setWidth})
           formDetails={formDetails}
           handleChange={handleChange}
           next={setStep}
+          setToaster={setToaster}
         />
       );
 
@@ -23,6 +24,7 @@ function Signup({formDetails,handleChange,setStep,step,handleCheckbox,setWidth})
           formDetails={formDetails}
           handleChange={handleChange}
           next={setStep}
+          setToaster={setToaster}
         />
       );
     case 3:

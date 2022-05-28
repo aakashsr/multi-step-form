@@ -1,7 +1,20 @@
 import React from "react";
 import Info from "../components/Info";
 
-function Profile({ formDetails, handleChange, next }) {
+function Profile({ formDetails, handleChange, next, setToaster }) {
+  const handleSubmit = (e) => {
+    if (formDetails.fullName === "") {
+      e.preventDefault();
+      console.log("if");
+      setToaster({ show: true, message: "*Please enter your full name" });
+    } else if (formDetails.userName === "") {
+      e.preventDefault();
+      setToaster({ show: true, message: "*Please enter user name" });
+    } else {
+      next((prevState) => prevState + 1);
+    }
+  };
+  
   return (
     <div className="profile-container">
       <Info
@@ -25,9 +38,7 @@ function Profile({ formDetails, handleChange, next }) {
             placeholder="Steve"
           />
         </div>
-        <button onClick={() => next((prevState) => prevState + 1)}>
-          Create Workspace
-        </button>
+        <button onClick={handleSubmit}>Create Workspace</button>
       </form>
     </div>
   );

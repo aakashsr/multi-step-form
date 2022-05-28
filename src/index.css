@@ -4,6 +4,17 @@
   --border: #ccc;
   --dark-grey: #58666c;
   --light-grey: #a8b2b7;
+  --toaster-red: #ff6b6b;
+}
+
+.App {
+  text-align: center;
+  width: 500px;
+  max-width: 650px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 body {
@@ -63,7 +74,7 @@ button {
   margin: 45px auto 25px auto;
 }
 
-.cards-container img{
+.cards-container img {
   width: 28px;
 }
 
@@ -168,4 +179,38 @@ input[type="checkbox"] {
 
 ::placeholder {
   color: var(--light-grey);
+}
+
+.toaster {
+  background: #fff0f3;
+  color: var(--toaster-red);
+  border: 1px solid var(--toaster-red);
+  border-radius: 6px;
+  padding: 6px;
+  width: 70%;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    width: 100%;
+  }
+
+  .cards-container{
+    flex-direction: column;
+  }
+
+  .me,.team{
+    width: 65%;
+    margin: 0 auto;
+  }
+
+  .me{
+    margin-bottom: 30px;
+  }
+
+  .profile-container{
+    padding: 10px;
+  }
 }
